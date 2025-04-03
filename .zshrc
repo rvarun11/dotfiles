@@ -114,7 +114,7 @@ cd() {
   # -d: don't switch focus to the new pane
   # Capture the new pane ID if needed, though not strictly necessary here
   # tmux split-window -h -p 30 -d -t "$current_pane"
-  tmux split-window -h -p 40 -d # Simpler version, splits the current pane
+  tmux split-window -h -p 35
 
   # Send the 'nvim .' command to the *original* (left) pane.
   # The focus remains on the left pane because we used '-d' during split.
@@ -126,6 +126,3 @@ cd() {
 
   return 0 # Success
 }
-
-# Optional: Add a message to confirm the function is loaded when sourcing the file
-# echo "Custom 'cd' function with Tmux Git support loaded."
