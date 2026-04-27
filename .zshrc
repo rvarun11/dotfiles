@@ -1,6 +1,3 @@
-
-export PATH="$HOME/.ghcup/bin:$PATH"
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -48,8 +45,7 @@ eval "$(zoxide init zsh)"
 
 
 
-# TODO: WIP - Tmux split on cd into git repo
-
+# Tmux split on cd into git repo
 # Store the original path to the cd command if it's not already stored
 # This prevents potential issues if this function is sourced multiple times
 if ! command -v __original_cd > /dev/null; then
@@ -108,13 +104,13 @@ cd() {
   local current_pane
   current_pane=$(tmux display-message -p '#{pane_id}')
 
-  # Split vertically: new (right) pane gets 30%, original (left) keeps 70%
+  # Split vertically: new (right) pane gets 45%, original (left) keeps 55%
   # -h: horizontal layout (vertical split line)
-  # -p 30: new pane takes 30%
+  # -p 45: new pane takes 45%
   # -d: don't switch focus to the new pane
   # Capture the new pane ID if needed, though not strictly necessary here
-  # tmux split-window -h -p 30 -d -t "$current_pane"
-  tmux split-window -h -p 35
+  # tmux split-window -h -p 45 -d -t "$current_pane"
+  tmux split-window -h -p 45
 
   # Send the 'nvim .' command to the *original* (left) pane.
   # The focus remains on the left pane because we used '-d' during split.
@@ -126,3 +122,4 @@ cd() {
 
   return 0 # Success
 }
+export PATH="$HOME/.local/bin:$PATH"
