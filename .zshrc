@@ -110,7 +110,7 @@ cd() {
   # -d: don't switch focus to the new pane
   # Capture the new pane ID if needed, though not strictly necessary here
   # tmux split-window -h -p 45 -d -t "$current_pane"
-  tmux split-window -h -p 45
+  tmux split-window -h -p 50
 
   # Send the 'nvim .' command to the *original* (left) pane.
   # The focus remains on the left pane because we used '-d' during split.
