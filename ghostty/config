@@ -1,0 +1,4 @@
+# Send Option key as Alt/Meta so tmux Alt+hjkl pane switching works
+macos-option-as-alt = true
+
+theme = Catppuccin Macchiato
